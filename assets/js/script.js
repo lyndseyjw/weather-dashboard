@@ -2,6 +2,15 @@ var searchButton = $('.searchButton');
 var searchInput = $('.searchInput');
 var localStorageDiv = $('.localStorageDiv');
 var savedCities = [];
+var weatherIcon;
+var iconCode;
+var iconArray = [];
+var weatherCodeArray = [];
+var weatherIconArray = [];
+var temp;
+var wind;
+var humidity;
+var UV;
 
 searchButton.on('click', function() {
 
@@ -17,9 +26,6 @@ searchButton.on('click', function() {
     localStorageDiv.append(button);
 
     searchInput.val('');
-
-    var cityName = $('.cityName');
-    cityName.text(city);
 
     var positionStackURL = 'http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
 
@@ -44,9 +50,57 @@ searchButton.on('click', function() {
                 })
                 .then(function (data) {
                     console.log(data);
+                    
+                    iconCode = data.daily[0].weather[0].icon;
+                    console.log(iconCode);
+
+                    var url = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                    var iconEl = $('<img>');
+                    iconEl.attr('src',url);
+
+                    var cityName = $('.cityName');
+                    console.log(cityName);
+                    cityName.text(city + " " + moment().format("M/D/YYYY"));
+                    cityName.append(iconEl);
+
+                    temp = data.current.temp;
+                    var cityTemp = $('.cityTemp');
+                    console.log(cityTemp);
+                    cityTemp.text("Temp : " + temp + "°F");
+
+                    wind = data.current.wind_speed;
+                    var cityWind = $('.cityWind');
+                    console.log(cityWind);
+                    cityWind.text("Wind : " + wind + " MPH");
+
+                    humidity = data.current.humidity;
+                    var cityHumidity = $('.cityHumidity');
+                    console.log(cityHumidity);
+                    cityHumidity.text("Humidity : " + humidity + "%");
+
+                    UV = data.current.uvi;
+                    var cityUV = $('.cityUV');
+                    console.log(cityUV);
+                    cityUV.text("UV Index : " + UV);
                 })
 
         })
+
+    // for (var i=0; i<iconArray.length; i++) {
+
+    //     weatherCodeArray.push(iconArray[i]);
+    // }
+
+    // for (var i=0; i<weatherCodeArray; i++) {
+
+    //     weatherIconArray.push("https://openweathermap.org/img/w/" + weatherCodeArray[i] + ".png");
+    // }
+    
+    // for (var i=0; i<weatherIconArray; i++) {
+
+        
+    // }
+    
 })
 
 function displayCities() {
