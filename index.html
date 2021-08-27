@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <section class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-12 col-md-4">
+
+                <div class="searchDiv">
+
+                    <h2 class="searchHeading">Search For a City :</h2>
+
+                    <input class="searchInput" type="text" placeholder="Los Angeles">
+
+                    <button class="searchButton" type="submit">Search</button>
+                </div>
+
+                <hr>
+
+                <div class="localStorageDiv"></div>
+            </div>
+
+            <div class="col-12 col-md-8 wtf">
+
+                <div class="cityDataDiv">
+
+                    <h2 class="cityName"></h2>
+                    
+                    <p class="cityTemp">Temp :</p>
+
+                    <p class="cityWind">Wind :</p>
+
+                    <p class="cityHumidity">Humidity :</p>
+
+                    <p class="cityUV">UV Index :</p>
+                </div>
+
+                <div class="fiveDayDiv">
+
+                    <h3>5-Day Forecast :</h3>
+
+                    <div class="cardFlex">
+
+                        <div class="cards">
+
+                            <h4 class="date1"></h4>
+
+                            <p class="date1Emoji"></p>
+
+                            <p class="date1Temp">Temp : </p>
+
+                            <p class="date1Wind">Wind : </p>
+
+                            <p class="date1Humidity">Humidity : </p>
+                        </div>
+
+                        <div class="cards">
+
+                            <h4 class="date2">hello</h4>
+
+                            <p class="date2Emoji"></p>
+
+                            <p class="date2Temp"></p>
+
+                            <p class="date2Wind"></p>
+
+                            <p class="date2Humidity"></p>
+                        </div>
+
+                        <div class="cards">
+
+                            <h4 class="date3">hello</h4>
+
+                            <p class="date3Emoji"></p>
+
+                            <p class="date3Temp"></p>
+
+                            <p class="date3Wind"></p>
+
+                            <p class="date3Humidity"></p>
+                        </div>
+
+                        <div class="cards">
+
+                            <h4 class="date4">hello</h4>
+
+                            <p class="date4Emoji"></p>
+
+                            <p class="date4Temp"></p>
+
+                            <p class="date4Wind"></p>
+
+                            <p class="date4Humidity"></p>
+                        </div>
+
+                        <div class="cards">
+
+                            <h4 class="date5">hello</h4>
+
+                            <p class="date5Emoji"></p>
+
+                            <p class="date5Temp"></p>
+
+                            <p class="date5Wind"></p>
+
+                            <p class="date5Humidity"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
