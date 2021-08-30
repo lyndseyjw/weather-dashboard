@@ -11,10 +11,21 @@ var temp;
 var wind;
 var humidity;
 var UV;
+var city;
+
+localStorageDiv.on("click", 'button', function(event) {
+    
+    console.log(event);
+
+    var savedCity = $(this).attr("data-city");
+
+    city = savedCity;
+    searchWeather();
+});
 
 searchButton.on('click', function() {
 
-    var city = searchInput.val();
+    city = searchInput.val();
     savedCities.push(city);
     localStorage.setItem("cities", JSON.stringify(savedCities));
 
@@ -23,9 +34,14 @@ searchButton.on('click', function() {
     var button = $("<button>");
     button.text(savedCities.slice(-1).pop());
     button.attr("style", "background-color:rgb(219, 84, 97); color:rgb(241, 237, 238)");
+    button.attr("data-city", city);
     localStorageDiv.append(button);
 
     searchInput.val('');
+    searchWeather();
+})
+
+function searchWeather() {
 
     var positionStackURL = 'http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
 
@@ -103,7 +119,7 @@ searchButton.on('click', function() {
                     var date1IconCode = data.daily[1].weather[0].icon;
                     var date1IconURL = "https://openweathermap.org/img/w/" + date1IconCode + ".png";
                     date1IconEl.attr("src", date1IconURL);
-                    $('.date1Emoji').append(date1IconEl);
+                    $('.date1Emoji').html(date1IconEl);
 
                     var date1Temp = data.daily[1].temp.day;
                     $('.date1Temp').text("Temp : " + date1Temp + "°F");
@@ -121,7 +137,7 @@ searchButton.on('click', function() {
                     var date2IconCode = data.daily[2].weather[0].icon;
                     var date2IconURL = "https://openweathermap.org/img/w/" + date2IconCode + ".png";
                     date2IconEl.attr("src", date2IconURL);
-                    $('.date2Emoji').append(date2IconEl);
+                    $('.date2Emoji').html(date2IconEl);
 
                     var date2Temp = data.daily[2].temp.day;
                     $('.date2Temp').text("Temp : " + date2Temp + "°F");
@@ -139,7 +155,7 @@ searchButton.on('click', function() {
                     var date3IconCode = data.daily[3].weather[0].icon;
                     var date3IconURL = "https://openweathermap.org/img/w/" + date3IconCode + ".png";
                     date3IconEl.attr("src", date3IconURL);
-                    $('.date3Emoji').append(date3IconEl);
+                    $('.date3Emoji').html(date3IconEl);
 
                     var date3Temp = data.daily[3].temp.day;
                     $('.date3Temp').text("Temp : " + date3Temp + "°F");
@@ -157,7 +173,7 @@ searchButton.on('click', function() {
                     var date4IconCode = data.daily[4].weather[0].icon;
                     var date4IconURL = "https://openweathermap.org/img/w/" + date4IconCode + ".png";
                     date4IconEl.attr("src", date4IconURL);
-                    $('.date4Emoji').append(date4IconEl);
+                    $('.date4Emoji').html(date4IconEl);
 
                     var date4Temp = data.daily[4].temp.day;
                     $('.date4Temp').text("Temp : " + date4Temp + "°F");
@@ -175,7 +191,7 @@ searchButton.on('click', function() {
                     var date5IconCode = data.daily[5].weather[0].icon;
                     var date5IconURL = "https://openweathermap.org/img/w/" + date5IconCode + ".png";
                     date5IconEl.attr("src", date5IconURL);
-                    $('.date5Emoji').append(date5IconEl);
+                    $('.date5Emoji').html(date5IconEl);
 
                     var date5Temp = data.daily[5].temp.day;
                     $('.date5Temp').text("Temp : " + date5Temp + "°F");
@@ -188,7 +204,7 @@ searchButton.on('click', function() {
                 })
 
         })
-})
+}
 
 function displayCities() {
 
