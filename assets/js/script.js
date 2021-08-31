@@ -43,7 +43,7 @@ searchButton.on('click', function() {
 
 function searchWeather() {
 
-    var positionStackURL = 'http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
+    var positionStackURL = 'https://cors-anywhere.herokuapp.com/http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
 
     fetch(positionStackURL)
         .then(function (response) {
