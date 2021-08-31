@@ -43,22 +43,23 @@ searchButton.on('click', function() {
 
 function searchWeather() {
 
-    var positionStackURL = 'https://cors-anywhere.herokuapp.com/http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
+    // var positionStackURL = 'https://cors-anywhere.herokuapp.com/http://api.positionstack.com/v1/forward?access_key=504536cca90d4c48fb032176b5240b9c&query=' + city
 
-    fetch(positionStackURL)
+    var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ab330beac43f3deca21f334bab6bb536"
+
+    fetch(openWeatherURL)
         .then(function (response) {
             return response.json()
         })
         .then(function (data) {
             console.log(data);
 
-            latitude = data.data[0].latitude;
-            longitude = data.data[0].longitude;
+            latitude = data.coord.lat;
+            longitude = data.coord.lon;
             console.log(latitude);
             console.log(longitude);
 
             var weatherURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&units=imperial&appid=ab330beac43f3deca21f334bab6bb536'
-
 
             fetch(weatherURL)
                 .then(function (response) {
