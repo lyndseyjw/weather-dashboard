@@ -10,7 +10,13 @@ The use of emojis is a visually appealing way for the user to connect to the wea
 
 The page has been styled with accessiblity in mind - the color schemes was chosen to satisy a large range of audiences.
 
+Technologies used : HTML5, Advanced CSS, JQuery
+
 To view the deployed application, please click here : https://lyndseyjw.github.io/weather-dashboard/
+
+This project is licensed under the terms of the MIT license.
+
+You may contact the sole contributor at lyndseyjwatson@gmail.com
 
 I hope you enjoy!
 
