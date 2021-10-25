@@ -19,7 +19,7 @@ Users can search for cities & find the current weather as well as a 5-Day Forece
 
 ## Languages & Technologies Used
 
-HTML5, Advanced CSS, JQuery
+HTML5, Advanced CSS, JQuery, API Fetch
 
 ## License
 
