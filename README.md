@@ -31,4 +31,6 @@ You may contact the sole contributor at lyndseyjwatson@gmail.com
 
 I hope you enjoy!
 
+## Application Screenshot
+
 ![Weather Dashboard](./assets/images/weather-dashboard.png)
